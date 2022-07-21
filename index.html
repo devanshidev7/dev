@@ -218,7 +218,7 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="#">
+                    <form onsubmit="sendEmail(); reset(); return false;">
                         <div class="fields">
                             <div class="field name">
                                 <input type="text" placeholder="Name" required>
@@ -257,5 +257,22 @@
         <span>Created By <a href="#">Devanshi Rathore</a> | <span class="far fa-copyright"></span> 2022 All rights reserved.</span>
     </footer>
     <script src="website.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    
+    <script>
+        function sendEmail() {
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "devanshirathore09@gmail.com",
+                Password: "B02E3603BD4ACB327FC840766A8E04459506",
+                To: 'devanshirathore09@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "This is the subject",
+                Body: "And this is the body"
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 </body>
 </html>
